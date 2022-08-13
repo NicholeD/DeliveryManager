@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * A class to hash a batch of passwords in a separate thread.
  */
-public class BatchPasswordHasher implements Runnable{
+public class BatchPasswordHasher implements Runnable  {
 
     private final List<String> passwords;
     private final Map<String, String> passwordToHashes;
@@ -47,6 +47,8 @@ public class BatchPasswordHasher implements Runnable{
     //TODO: Implement this method
     @Override
     public void run() {
-
+        //System.out.println("BatchPasswordHasher running.");
+        getPasswordToHashes();
+        hashPasswords();
     }
 }
