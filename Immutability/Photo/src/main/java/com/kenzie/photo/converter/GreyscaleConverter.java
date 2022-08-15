@@ -19,12 +19,14 @@ public class GreyscaleConverter implements PrimePhotoConverter {
 
         for (Pixel pixel : image.getPixels()) {
             RGB rgb = pixel.getRGB();
-            rgb.toGreyScale();
+            rgb = rgb.toGreyScale();
             pixels.add(new Pixel(pixel.getX(), pixel.getY(), rgb));
         }
 
         PrimePhoto convertedImage = new PrimePhoto(pixels, image.getHeight(), image.getWidth(), image.getType());
+        String filePath = PrimePhotoUtil.savePrimePhoto(convertedImage, imageName, ConversionType.GREYSCALE);
+        filePath = filePath.toLowerCase();
 
-        return PrimePhotoUtil.savePrimePhoto(convertedImage, imageName, ConversionType.GREYSCALE);
+        return filePath;
     }
 }

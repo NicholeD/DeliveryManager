@@ -20,12 +20,13 @@ public class InversionConverter implements PrimePhotoConverter {
 
         for (Pixel pixel : image.getPixels()) {
             RGB rgb = pixel.getRGB();
-            rgb.invert();
+            rgb = rgb.invert();
             pixels.add(new Pixel(pixel.getX(), pixel.getY(), rgb));
         }
 
         PrimePhoto convertedImage = new PrimePhoto(pixels, image.getHeight(), image.getWidth(), image.getType());
-
-        return PrimePhotoUtil.savePrimePhoto(convertedImage, imageName, ConversionType.INVERSION);
+        String filePath = PrimePhotoUtil.savePrimePhoto(convertedImage, imageName, ConversionType.INVERSION);
+        filePath = filePath.toLowerCase();
+        return filePath;
     }
 }
