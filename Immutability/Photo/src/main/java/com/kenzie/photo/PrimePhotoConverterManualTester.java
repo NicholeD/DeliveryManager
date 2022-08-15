@@ -27,7 +27,7 @@ public class PrimePhotoConverterManualTester {
 
         // This test converts an image with a single filter type
         // Uncomment and run this to compare the output to the test above
-        // runTest("Immutability/Photo/src/resources/dalmatian.jpg", ImmutableList.of(ConversionType.SEPIA));
+        runTest("Immutability/Photo/src/resources/dalmatian.jpg", ImmutableList.of(ConversionType.SEPIA));
     }
 
     private static void runTest(String filePath, ImmutableList<ConversionType> conversions) {
